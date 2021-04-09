@@ -2,7 +2,7 @@ solucion = [True for x1 in range(1, 28) for x2 in range(1, 28) for x3 in range(0
 
 def suma(n):
   s = 0
-  for k in range(n):
+  for k in range(n - 1):
     s += (n - k - 1)*((1 - (-1)**k)/2)
   return s 
 
