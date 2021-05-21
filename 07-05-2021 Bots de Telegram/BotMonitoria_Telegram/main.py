@@ -1,6 +1,7 @@
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 from config import TOKEN
 import bot
+from GraphVisualization import GraphVisualization
 
 
 def main():
@@ -28,3 +29,17 @@ def main():
 
 if __name__ == '__main__':
     main()
+    texto = ""
+    for i in range(0, 5):
+        texto = texto + f"b^{i}"
+        if i != 4:
+            texto += " + "
+    print(texto)
+    grafo = GraphVisualization()
+    grafo.addEdge(0, 2)
+    grafo.addEdge(1, 2)
+    grafo.addEdge(1, 3)
+    grafo.addEdge(5, 3)
+    grafo.addEdge(3, 4)
+    grafo.addEdge(1, 0)
+    grafo.visualize()

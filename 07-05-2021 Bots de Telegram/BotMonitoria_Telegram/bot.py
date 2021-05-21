@@ -65,14 +65,18 @@ def image(update, context):
 def grafo(update, context):
     logger.info(f"El usuario {update.message.chat['first_name']} ha solicitado un grafo.")
     text = update.message.text
-    text = text.replace("/grafo ", "").strip()
+    text = text.replace("/grafo", "").strip()
     update.message.reply_text(f"Usted ha escrito: \n{text}")
     try:
         graph = eval(text)
-        vertices = int(graph[0])
-        aristas = int(graph[1])
-        update.message.reply_text(f"La cantidad de vértices son: {vertices}")
-        update.message.reply_text(f"La cantidad de aristas son: {aristas}")
+        if len(graph) == 2:
+            vertices = int(graph[0])
+            aristas = int(graph[1])
+            # generarGrafo(v, a, k)
+            update.message.reply_text(f"La cantidad de vértices son: {vertices}")
+            update.message.reply_text(f"La cantidad de aristas son: {aristas}")
+        else:
+            update.message.reply_text("Debe ingresar únicamente dos parámetros.")
     except Exception as e:
         logger.info("Ha ocurrido un error en los parámetros.")
         update.message.reply_text("Por favor, digite los parámetros nuevamente.")
@@ -80,7 +84,7 @@ def grafo(update, context):
 
 def secuencia(update, context):
     text = update.message.text
-    text = text.replace("/sec ", "").strip()
+    text = text.replace("/sec", "").strip()
     try:
         secuencia = eval(text)
         for item in secuencia:
@@ -106,3 +110,5 @@ def menu(update, context):
         imagen(chat_id, query)
     elif answer == "op4":
         document(chat_id, query)
+
+

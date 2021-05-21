@@ -1,3 +1,5 @@
 python-telegram-bot
 telegram
 numpy
+networkx
+matplotlib
