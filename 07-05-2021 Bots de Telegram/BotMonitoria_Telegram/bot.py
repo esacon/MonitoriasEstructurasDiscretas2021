@@ -90,10 +90,17 @@ def secuencia(update, context):
         for item in secuencia:
             item = int(item)
             update.message.reply_text(item)
+
+        # salida = calculoSecuencia(entrada)
+        # update.message.reply_text(salida)
     except Exception as e:
         logger.info("Ha ocurrido un error en los parámetros.")
         update.message.reply_text("Por favor, digite los parámetros nuevamente.")
 
+
+def calculoSecuencia(entrada):
+    salida = []
+    return salida
 
 def menu(update, context):
     query = update.callback_query
